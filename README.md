@@ -8,10 +8,10 @@ I've went back and moved some of the more noteable programs
 into their own folders.
 
 Compiling these programs requires the horribly outdated and Windows only 
-[Virtual Pascal Compiler]("http://www.softpedia.com/get/Programming/Coding-languages-Compilers/Virtual-Pascal.shtml"). Open up the "main" source
+[Virtual Pascal Compiler](http://www.softpedia.com/get/Programming/Coding-languages-Compilers/Virtual-Pascal.shtml). Open up the "main" source
 file for a program in the Virtual Pascal IDE and select `Compile->Build` andthen `Run` to run the given program.
 
-In the future I would like to port a couple of these programs to [Free Pascal]("www.freepascal.org") using the ncurses library to port the text-based interface to Linux + OSX.
+In the future I would like to port a couple of these programs to [Free Pascal](www.freepascal.org) using the ncurses library to port the text-based interface to Linux + OSX.
 
 # Noteable Programs 
 Last Tested December 2015 on a PC running Windows 10.
