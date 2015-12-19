@@ -3,7 +3,7 @@ PROGRAM TetrisMain;
 //By Ross Meikleham 2012
 
 
-USES TetrisFunc,TetrisGraph,CRT;
+USES TetrisFunc,TetrisGraph,CRT, VPUtils;
 
 VAR Debug:BOOLEAN=TRUE;
 
@@ -157,7 +157,7 @@ PROCEDURE MovePiece(Board:TBoard;Piece:TPiece;Dir:CHAR);
 
 //Move one of the pieces
 PROCEDURE PieceAction(Board:TBoard;Piece:TPiece);
-VAR Timer:INTEGER;
+VAR Timer:LONGINT;
     Key:CHAR;
    BEGIN
       Timer:=0;
@@ -245,6 +245,7 @@ VAR Piece,NextPiece:TPiece;
    END;
 
 BEGIN
-//HideCursor;
+HideCursor;
 Main;
+
 END.

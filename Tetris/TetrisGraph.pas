@@ -8,9 +8,9 @@ INTERFACE
 
 USES CRT;
 
-CONST Block='o'; //Block Ascii
-      HorizLine='_';
-      VertLine='|';
+CONST Block='Û'; //Block Ascii
+      HorizLine='Í' ;
+      VertLine='º';
       Up=#72;
       Down=#80;
       Left=#75;

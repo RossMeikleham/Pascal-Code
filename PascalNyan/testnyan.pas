@@ -1,6 +1,6 @@
 PROGRAM PASCALNYAN ;
 
-USES CRT,DOS,SYSUTILS;
+USES CRT,DOS,SYSUTILS,MMSYSTEM, VPUTILS;
 
 
 VAR  TextColr:ARRAY[1..6] OF INTEGER;
@@ -45,10 +45,10 @@ FUNCTION PlayNyanNormal(P:Pointer):LONGINT;
 VAR SoundPath:STRING;
     PSoundPath:PCHAR;
    BEGIN
-//      SoundPath:=Dir+'\nyanlooped.wav';
-//      CopyStrtoPchr(SoundPath,PSoundPath);
-//      sndPLAYSOUND(PSoundPath,SND_NODEFAULT Or SND_ASYNC Or SND_LOOP);
-   EXIT (0); 
+      SoundPath:=Dir+'\nyanlooped.wav';
+      CopyStrtoPchr(SoundPath,PSoundPath);
+      sndPLAYSOUND(PSoundPath,SND_NODEFAULT Or SND_ASYNC Or SND_LOOP);
+   EXIT;
    END;
 
 
@@ -60,7 +60,7 @@ VAR SoundPath:STRING;
    BEGIN
       SoundPath:=Dir+'\nyan8bit.wav';
       CopyStrtoPchr(SoundPath,PsoundPath);
-//      sndPLAYSOUND(PSoundPath,SND_NODEFAULT Or SND_ASYNC Or SND_LOOP);
+      sndPLAYSOUND(PSoundPath,SND_NODEFAULT Or SND_ASYNC Or SND_LOOP);
    END;
 
 
@@ -124,7 +124,7 @@ PROCEDURE StartNyanCounter;
 
    BEGIN
 
-     // GETTIME(Hours,Mins,Secs,Sec100);
+      GETTIME(Hours,Mins,Secs,Sec100);
 
    END;
 
@@ -133,7 +133,7 @@ VAR SecHours,SecMins,TotalSec,TotalSec100:LONGINT;
     TempHour,TempMin,TempSec,TempSec100:LONGINT;
    BEGIN
 
-  //    GETTIME(TempHour,TempMin,TempSec,TempSec100);
+      GETTIME(TempHour,TempMin,TempSec,TempSec100);
 
       SecHours:=(TempHour-Hours)*3600;
       SecMins:=(TempMin-Mins)*60;
@@ -187,7 +187,7 @@ PROCEDURE DrawNyanBow2(X:LONGINT);
 
 
 PROCEDURE DrawNyanBow(First:BOOLEAN);
-VAR X:LONGINT; 
+VAR X:LONGINT;
     Y:LONGINT;
    BEGIN
 
@@ -319,12 +319,12 @@ VAR Text:STRING;
 
 SoundPath:=Dir+'\nyan8bit.wav';
 CopyStrtoPchr(SoundPath,PSoundPath);
-//sndPLAYSOUND(PSoundPath,SND_NODEFAULT Or SND_ASYNC Or SND_LOOP);
+sndPLAYSOUND(PSoundPath,SND_NODEFAULT Or SND_ASYNC Or SND_LOOP);
 
 WINDOW(15,2,80,6);
 CLRSCR;
 TEXTCOLOR(LIGHTRED);
-GOTOXY(1,1); WRITE(b,b,b,b,'лллл  лл   ллл ллл  лл  л     л   л л   л  лл  л   л  л');
+GOTOXY(1,1); WRITE('лллл  лл   ллл ллл  лл  л     л   л л   л  лл  л   л  л');
 TEXTCOLOR(YELLOW);
 GOTOXY(1,2); WRITE('л  л л  л  л   л   л  л л     лл  л  л л  л  л лл  л  л');
 TEXTCOLOR(LIGHTGREEN);
@@ -410,7 +410,7 @@ IF Continue=TRUE THEN
 BEGIN
 SoundPath:=Dir+'\SelectOption.wav';
 CopyStrtoPchr(SoundPath,PSoundPath);
-//sndPLAYSOUND(PsoundPath,SND_NODEFAULT);
+sndPLAYSOUND(PsoundPath,SND_NODEFAULT);
 
 FOR Z:=25 DOWNTO 1 DO
 BEGIN
@@ -419,12 +419,12 @@ CLREOL;
 DELAY(50);
 END;
 DELAY(400);
-//HIDECURSOR;
+HIDECURSOR;
 StartNyanCounter;
 InitialiseNyan;
 IF NormalNyan=TRUE THEN
-//VPBEGINTHREAD(PlayNyanNormal,16384,NIL) ELSE
-//VPBEGINTHREAD(PlayNyanNew,16384,NIL);
+VPBEGINTHREAD(PlayNyanNormal,16384,NIL) ELSE
+VPBEGINTHREAD(PlayNyanNew,16384,NIL);
 RANDOMIZE;
 
  REPEAT

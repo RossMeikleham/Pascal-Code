@@ -3,8 +3,6 @@ UNIT TetrisFunc;
  for Tetris
  Created by Ross Meikleham 2012}
 
-{$mode objfpc}{$H+}
-
 INTERFACE
 
 USES CRT;

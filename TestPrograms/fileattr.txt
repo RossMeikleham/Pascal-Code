@@ -1,3 +1,0 @@
-SetFAttr(Var F; Attr: Word)
-
-$01
